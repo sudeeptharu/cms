@@ -68,6 +68,8 @@
     <script src="<?php echo e(url('tinymce/tinymce.min.js')); ?>"></script>
     <script src="<?php echo e(url('tinymce/jquery.tinymce.min.js')); ?>"></script>
     <script src="<?php echo e(url('tinymce/plugins/code/plugin.min.js')); ?>"></script>
+    <!--clockwork cdn-->
+    <script src="https://cdn.jsdelivr.net/gh/underground-works/clockwork-browser@1/dist/toolbar.js"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">
 <div class="wrapper">
