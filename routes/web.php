@@ -68,6 +68,7 @@ Route::get('/mediaManager', function (){
 });
 Route::get('/mediaManager/image', [GalleryController::class,'allUploadedImages']);
 Route::post('/mediaManager/uploadmedia', [GalleryController::class,'mediaImageUpload']);
+Route::post('/mediaManager/destroyImage', [GalleryController::class,'destroyImage']);
 
 Route::get('image',[ImageController::class,'index']);
 Route::post('/image/save',[ImageController::class,'store']);
@@ -96,10 +97,10 @@ Route::post('/menu/save',[MenuController::class,'store']);
 Route::put('/menu/update',[MenuController::class,'update']);
 Route::get('menu/delete/{id}',[MenuController::class,'destroy']);
 
-Route::get('websetting',[WebSettingController::class,'index']);
-Route::post('/websetting/save',[WebSettingController::class,'store']);
-Route::put('/websetting/update',[WebSettingController::class,'update']);
-Route::get('websetting/delete/{id}',[WebSettingController::class,'destroy']);
+Route::get('webSetting',[WebSettingController::class,'index']);
+Route::post('/webSetting/save',[WebSettingController::class,'store']);
+Route::put('/webSetting/update',[WebSettingController::class,'update']);
+Route::get('/webSetting/delete/{id}',[WebSettingController::class,'destroy']);
 
 Route::get('link',[LinkController::class,'index']);
 Route::post('link/save',[LinkController::class,'store']);

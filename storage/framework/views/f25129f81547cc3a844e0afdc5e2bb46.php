@@ -76,6 +76,8 @@
                                     </tbody>
 
                                 </table>
+                                <?php echo e($pages->onEachSide(0)->links()); ?>
+
 
                             </div>
                         </div>

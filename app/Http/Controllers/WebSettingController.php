@@ -12,8 +12,8 @@ class WebSettingController extends Controller
      */
     public function index()
     {
-        $web_settings=WebSetting::paginate(10);
-        return view('dashboard.pages.web_settings',compact('web_settings',));
+        $webSettings=WebSetting::paginate(10);
+        return view('dashboard.pages.web_settings',compact('webSettings',));
     }
 
     /**
@@ -35,7 +35,7 @@ class WebSettingController extends Controller
             'image'=>$request->image,
             'align'=>$request->align
         ]);
-        return redirect('websetting');
+        return redirect('webSetting');
     }
 
     /**
@@ -66,7 +66,7 @@ class WebSettingController extends Controller
             'image'=>$request->image,
             'align'=>$request->align
         ]);
-        return redirect('websetting');
+        return redirect('webSetting');
     }
 
     /**
@@ -75,6 +75,6 @@ class WebSettingController extends Controller
     public function destroy( $id)
     {
         WebSetting::where(['id'=>$id])->delete();
-        return redirect('slider');
+        return redirect('webSetting');
     }
 }

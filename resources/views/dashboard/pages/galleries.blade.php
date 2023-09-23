@@ -67,6 +67,7 @@
                                     </tbody>
 
                                 </table>
+                                {{ $galleries->onEachSide(0)->links() }}
 
                             </div>
                         </div>

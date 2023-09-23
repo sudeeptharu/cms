@@ -58,10 +58,11 @@
                                         </tr>
 
                                     @endforeach
+
                                     </tbody>
 
                                 </table>
-
+                                {{ $categories->onEachSide(0)->links() }}
                             </div>
                         </div>
                     </div>

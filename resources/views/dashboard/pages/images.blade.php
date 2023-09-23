@@ -70,6 +70,7 @@
                                     </tbody>
 
                                 </table>
+                                {{ $images->onEachSide(0)->links() }}
 
                             </div>
                         </div>

@@ -64,6 +64,7 @@
                                     </tbody>
 
                                 </table>
+                                {{ $videos->onEachSide(0)->links() }}
 
                             </div>
                         </div>

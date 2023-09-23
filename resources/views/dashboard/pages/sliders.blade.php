@@ -70,6 +70,7 @@
                                     </tbody>
 
                                 </table>
+                                {{ $sliders->onEachSide(0)->links() }}
 
                             </div>
                         </div>

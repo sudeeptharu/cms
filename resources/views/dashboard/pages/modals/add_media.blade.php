@@ -56,7 +56,8 @@
 <!-- /.modal-dialog -->
 
 <script>
-    var bsurl = '{{Storage::url('gallery')}}';
+    var bsurl = '{{Storage::url('images')}}';
+    // var bsurl = 'images';
     var fm_dropzone_main = null;
     var cntFiles = null;
     $(function () {
@@ -79,8 +80,8 @@
         $("body").on("click", "ul.files_container .fm_file_sel", function() {
             var upload = $(this).attr("title");
 
-            $("body").find('#image_preview').attr('src','{{Storage::url('gallery')."/"}}'+upload).show();
-            $('body').find('#image').val('{{Storage::url('gallery')."/"}}'+upload);
+            $("body").find('#image_preview').attr('src','{{Storage::url('images')."/"}}'+upload).show();
+            $('body').find('#image').val('{{Storage::url('images')."/"}}'+upload);
             $('#modal-default-upload-image').modal('hide');
 
         });
@@ -157,17 +158,9 @@
             image = '<img class="lazy"'+data+'src="'+bsurl+'/'+upload.name+'?s=130">';
         } else {
             image = '<img class="lazy"'+data+'src="'+bsurl+'/'+upload+'?s=130">';
-
-            // switch (upload.extension) {
-            //     case "pdf":
-            //         image = '<i class="fa fa-file-pdf-o"></i>';
-            //         break;
-            //     default:
-            //         image = '<i class="fa fa-file-text-o"></i>';
-            //         break;
-            // }
         }
-        $('.image').value=upload;
+        // $('.image').value=upload;
+        console.log(upload)
         return '<li><a class="fm_file_sel" data-toggle="tooltip" data-placement="top" title="'+upload+'"\>'+image+'</a></li>';
     }
 </script>

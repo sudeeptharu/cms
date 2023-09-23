@@ -37,8 +37,8 @@
                                     </ul>
                                 </div>
                             @endif
-
-                                <form action="{{url('/mediaManager/uploadmedia')}}" id="fm_dropzone_main" enctype="multipart/form-data" method="POST">
+<!--"-->
+                                <form  action="{{url('/mediaManager/uploadmedia')}}" id="fm_dropzone_main"   enctype="multipart/form-data" method="POST">
                                     @csrf
                                     <a id="closeDZ1"><i class="fa fa-times"></i></a>
                                     <div class="dz-message"><i class="fa fa-cloud-upload"></i><br>Drop files here to upload</div>
@@ -60,13 +60,16 @@
 
     </div>
     <script>
-        var bsurl = '{{Storage::url('gallery')}}';
+        // var bsurl = '{{Storage::url('gallery')}}';
+        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+        var bsurl='images';
         console.log(bsurl)
         var fm_dropzone_main = null;
         var cntFiles = null;
         $(function () {
             fm_dropzone_main = new Dropzone("#fm_dropzone_main", {
-                maxFilesize: 2,
+                maxFilesize: 20,
                 acceptedFiles: "image/*,application/pdf",
                 init: function() {
                     this.on("complete", function(file) {
@@ -84,8 +87,8 @@
             $("body").on("click", "ul.files_container .fm_file_sel", function() {
                 var upload = $(this).attr("title");
 
-                $("body").find('#image_preview').attr('src','{{Storage::url('gallery')."/"}}'+upload).show();
-                $('body').find('#fieldID').val('{{Storage::url('gallery')."/"}}'+upload);
+                $("body").find('#image_preview').attr('src','{{Storage::url('images')."/"}}'+upload).show();
+                $('body').find('#fieldID').val('{{Storage::url('images')."/"}}'+upload);
                 $('#modal-default-upload-image').modal('hide');
 
             });
@@ -140,6 +143,7 @@
         function showLoadedImages(files) {
             $("ul.files_container").empty();
             if(files.length) {
+                console.log("yess thhere is ");
                 for (var index = 0; index < 16; index++) {
                     var element = files[index];
                     var li = formatFile(element,"");
@@ -148,7 +152,6 @@
                 for(var index = 16; index < files.length; index++)
                 {
                     var element = files[index];
-                    console.log(element)
                     var li = formatFile(element,"data-");
                     $("ul.files_container").append(li);
                 }
@@ -158,26 +161,46 @@
             setLazyLoad();
         }
         function formatFile(upload,data) {
+            console.log(data);
             var image = '';
             if($.inArray(upload.extension, ["jpg", "jpeg", "png", "gif", "bmp"]) > -1) {
                 image = '<img class="lazy"'+data+'src="'+bsurl+'/'+upload+'?s=130">';
             } else {
                 image = '<img class="lazy"'+data+'src="'+bsurl+'/'+upload+'?s=130">';
 
-                // switch (upload.extension) {
-                //     case "pdf":
-                //         image = '<i class="fa fa-file-pdf-o"></i>';
-                //         break;
-                //     default:
-                //         image = '<i class="fa fa-file-text-o"></i>';
-                //         break;
-                // }
-
             }
+            $(document).ready(function() {
+                $('.badge-danger').on('click', function() {
+                    $(this).closest('li').hide();
+                    // var imagename=$(this).closest('li').find('img').attr('src');
+                    // var parts=imagename.split('/')[1];
+                    // var imageactualname=parts.split('?')[0]
+
+                    // console.log(imageactualname);
+                });
+            });
             // return '<li><a class="fm_file_sel" data-toggle="tooltip" data-placement="top" title="'+upload.name+'"\>'+image+'</a></li>';
             return '<li ><a class="fm_file_sel" style="position: relative;"  data-toggle="tooltip" data-placement="top"  upload=\''+JSON.stringify(upload)+'\'>'
-                +image+'<span class="badge badge-pill badge-danger badge-up" style="top: 0px !important;right: 0px !important; position: absolute;">x</span></a></li>';
+                +image+'<span class="badge badge-pill badge-danger badge-up" style="top: 0px !important;right: 0px !important; position: absolute; cursor: pointer;">x</span></a></li>';
         }
+
+        // Dropzone.options.fm_dropzone_main = {
+        //     paramName: "file",
+        //     maxFilesize: 2,
+        //     parallelUploads: 2,
+        //     acceptedFiles: "image/*,application/pdf,.psd"
+        //     init: function() {
+        //         this.on("complete", function(file) {
+        //             this.removeFile(file);
+        //         });
+        //         this.on("success", function(file) {
+        //             console.log("addedfile");
+        //             console.log(file);
+        //             loadUploadedFiles();
+        //         });
+        //     }
+        // }
+
     </script>
 
 @endsection

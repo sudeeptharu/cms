@@ -70,6 +70,7 @@
                                     </tbody>
 
                                 </table>
+                                {{ $services->onEachSide(0)->links() }}
 
                             </div>
                         </div>

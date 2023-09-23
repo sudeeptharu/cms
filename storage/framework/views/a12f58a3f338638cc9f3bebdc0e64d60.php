@@ -62,6 +62,8 @@
                                     </tbody>
 
                                 </table>
+                                <?php echo e($videos->onEachSide(0)->links()); ?>
+
 
                             </div>
                         </div>

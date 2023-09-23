@@ -78,6 +78,7 @@
                                     </tbody>
 
                                 </table>
+                                {{ $pages->onEachSide(0)->links() }}
 
                             </div>
                         </div>

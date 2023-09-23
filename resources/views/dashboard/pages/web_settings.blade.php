@@ -40,23 +40,23 @@
                                     </thead>
                                     <tbody>
 
-                                    @foreach($web_settings as $web_setting)
+                                    @foreach($webSettings as $webSetting)
 
                                         <tr class="text-center">
-                                            <td>{{$web_setting->key}}</td>
-                                            <td>{{$web_setting->value}}</td>
-                                            <td>{{$web_setting->image}}</td>
+                                            <td>{{$webSetting->key}}</td>
+                                            <td>{{$webSetting->value}}</td>
+                                            <td>{{$webSetting->image}}</td>
                                             <td>
 
                                                 <div class="btn-group">
                                                     <a href="#" data-toggle="modal" data-target="#edit_web_setting"
-                                                       data-id="{{$web_setting->id}}"
-                                                       data-value="{{$web_setting->value}}"
-                                                       data-align="{{$web_setting->align}}"
-                                                       data-image="{{$web_setting->image}}"
-                                                       data-key="{{$web_setting->key}}"
+                                                       data-id="{{$webSetting->id}}"
+                                                       data-value="{{$webSetting->value}}"
+                                                       data-align="{{$webSetting->align}}"
+                                                       data-image="{{$webSetting->image}}"
+                                                       data-key="{{$webSetting->key}}"
                                                        class="btn-primary btn-sm" title="Edit"><span class="fa fa-edit"></span></a>
-                                                    <a href="{{url('/web_setting/delete/'.$web_setting->id )}}"
+                                                    <a href="{{url('/webSetting/delete/'.$webSetting->id)}}"
                                                        class="btn btn-danger btn-sm" title="Delete"><span class="fa fa-trash"></span>
                                                     </a>
                                                 </div>
@@ -68,6 +68,9 @@
                                     </tbody>
 
                                 </table>
+
+                                    {{ $webSettings->onEachSide(0)->links() }}
+
 
                             </div>
                         </div>
@@ -86,8 +89,8 @@
         @include('dashboard.pages.modals.add_edit_web_setting', ['task' => 'update' ]);
     </div>
 
-    {{--    <div class="modal fade" id="delete_modal">--}}
-    {{--        @include('dashboard.pages.modals.delete_modal');--}}
-    {{--    </div>--}}
+<!--    {{--    <div class="modal fade" id="delete_modal">--}}-->
+<!--    {{--        @include('dashboard.pages.modals.delete_modal');--}}-->
+<!--    {{--    </div>--}}-->
 
 @endsection

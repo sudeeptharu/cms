@@ -64,6 +64,7 @@
                                     </tbody>
 
                                 </table>
+                                {{ $scrollers->onEachSide(0)->links() }}
 
                             </div>
                         </div>

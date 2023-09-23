@@ -65,9 +65,11 @@
                                             </td>
                                         </tr>
                                     @endforeach
-
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-center">
+                                    {{ $posts->onEachSide(0)->links() }}
+                                </div>
                             </div>
                         </div>
                     </div>
