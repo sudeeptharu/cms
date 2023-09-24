@@ -60,10 +60,10 @@
 
     </div>
     <script>
-        // var bsurl = '{{Storage::url('gallery')}}';
+        var bsurl = '{{Storage::url('images')}}';
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-        var bsurl='images';
+        // var bsurl='images';
         console.log(bsurl)
         var fm_dropzone_main = null;
         var cntFiles = null;

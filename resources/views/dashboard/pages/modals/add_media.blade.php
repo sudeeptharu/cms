@@ -56,6 +56,7 @@
 <!-- /.modal-dialog -->
 
 <script>
+
     var bsurl = '{{Storage::url('images')}}';
     // var bsurl = 'images';
     var fm_dropzone_main = null;
@@ -79,11 +80,9 @@
 
         $("body").on("click", "ul.files_container .fm_file_sel", function() {
             var upload = $(this).attr("title");
-
             $("body").find('#image_preview').attr('src','{{Storage::url('images')."/"}}'+upload).show();
             $('body').find('#image').val('{{Storage::url('images')."/"}}'+upload);
             $('#modal-default-upload-image').modal('hide');
-
         });
 
         loadUploadedFiles();
@@ -95,7 +94,6 @@
                 return file.name.includes(search_text);
             });
             showLoadedImages(newFiles);
-
         });
 
         $("#fm_dropzone_main").slideUp();
@@ -108,17 +106,13 @@
 
         $("#modal-default-upload-image").on('hide.bs.modal', function(){
             $('.set').hide();
-            $('.reset').removeClass('hidden');
+            $('.reset').removeClass('d-none');
         });
         $('.reset').on('click',function () {
             $('#image_preview').attr('src','');
             $('.set').show();
-            $('.reset').addClass('hidden');
+            $('.reset').addClass('d-none');
         });
-
-
-
-
     });
 
     function loadUploadedFiles() {
@@ -138,7 +132,10 @@
         if(files.length) {
             for (var index = 0; index < 16; index++) {
                 var element = files[index];
+                console.log("ayushman")
+                console.log(element.extension);
                 var li = formatFile(element,"");
+                console.log(li)
                 $("ul.files_container").append(li);
             }
             for(var index = 16; index < files.length; index++)

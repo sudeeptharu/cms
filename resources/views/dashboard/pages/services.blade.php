@@ -70,8 +70,10 @@
                                     </tbody>
 
                                 </table>
-                                {{ $services->onEachSide(0)->links() }}
+                                <div class="d-flex p-4 justify-content-center">
 
+                                {{ $services->onEachSide(0)->links() }}
+                                </div>
                             </div>
                         </div>
                     </div>

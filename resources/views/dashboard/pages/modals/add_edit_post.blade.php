@@ -89,7 +89,7 @@
                                            data-bs-dismiss="modal"
                                            class="btn set"
                                            type="button">Click here to select Image</a>
-                                        <a href="#" class="btn text-red reset hidden" type="button">Reset Image</a>
+                                        <a href="#" class="btn text-red reset hidden d-none"  type="button">Reset Image</a>
                                         <div id="cont-img"><img id="image_preview"  @if(!empty($post)) src="{{$post->image}}" width="200"  @else src="" style="display:none;" width="200" @endif  /></div>
 
                                     </div>

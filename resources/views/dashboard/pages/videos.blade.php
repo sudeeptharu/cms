@@ -64,8 +64,10 @@
                                     </tbody>
 
                                 </table>
-                                {{ $videos->onEachSide(0)->links() }}
+                                <div class="d-flex p-4 justify-content-center">
 
+                                {{ $videos->onEachSide(0)->links() }}
+                                </div>
                             </div>
                         </div>
                     </div>

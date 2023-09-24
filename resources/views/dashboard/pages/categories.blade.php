@@ -62,7 +62,9 @@
                                     </tbody>
 
                                 </table>
+                                <div class="d-flex p-4 justify-content-center">
                                 {{ $categories->onEachSide(0)->links() }}
+                                </div>/
                             </div>
                         </div>
                     </div>
