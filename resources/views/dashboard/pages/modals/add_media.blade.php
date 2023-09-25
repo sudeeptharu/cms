@@ -132,10 +132,7 @@
         if(files.length) {
             for (var index = 0; index < 16; index++) {
                 var element = files[index];
-                console.log("ayushman")
-                console.log(element.extension);
                 var li = formatFile(element,"");
-                console.log(li)
                 $("ul.files_container").append(li);
             }
             for(var index = 16; index < files.length; index++)

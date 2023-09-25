@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Slider;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
-
 class SliderController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -46,6 +47,7 @@ class SliderController extends Controller
            'image'=>$request->image,
            'order'=>$request->order
        ]);
+       $this->getDestroySuccessMEssage('Slider');
        return redirect('slider');
 //
    }
@@ -80,6 +82,7 @@ class SliderController extends Controller
             'image'=>$request->image,
             'order'=>$request->order
         ]);
+        $this->getUpdateSuccessMessage('Slider');
         return redirect('slider');
     }
 
@@ -89,6 +92,7 @@ class SliderController extends Controller
     public function destroy($id)
     {
         Slider::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('Slider');
         return redirect('slider');
     }
 }

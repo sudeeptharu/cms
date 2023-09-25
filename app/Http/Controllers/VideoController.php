@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Video;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
-
 class VideoController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -33,6 +34,7 @@ class VideoController extends Controller
             'title'=>$request->title,
             'url'=>$request->url,
         ]);
+        $this->getDestroySuccessMEssage('Video');
         return redirect('video');
     }
 
@@ -62,6 +64,7 @@ class VideoController extends Controller
             'title'=>$request->title,
             'url'=>$request->url,
         ]);
+        $this->getUpdateSuccessMessage('Video');
         return redirect('video');
     }
 
@@ -71,6 +74,7 @@ class VideoController extends Controller
     public function destroy($id)
     {
         Video::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('Video');
         return redirect('slider');
     }
 }

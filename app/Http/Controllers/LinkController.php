@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Link;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
+
 
 class LinkController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -34,6 +37,7 @@ class LinkController extends Controller
             'icon'=>$request->icon,
             'url'=>$request->url,
         ]);
+        $this->getSuccessMessage('Link');
         return redirect('link');
     }
 
@@ -65,6 +69,7 @@ class LinkController extends Controller
             'icon'=>$request->icon,
             'url'=>$request->url,
         ]);
+        $this->getUpdateSuccessMessage('Link');
         return redirect('link');
     }
 
@@ -74,6 +79,7 @@ class LinkController extends Controller
     public function destroy($id)
     {
         Link::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('Link');
         return redirect('link');
     }
 }

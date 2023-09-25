@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
-
 class ServiceController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -37,6 +38,7 @@ class ServiceController extends Controller
             'excerpt'=>$request->excerpt,
             'image'=>$request->image,
         ]);
+        $this->getSuccessMessage('Service');
         return redirect('service');
     }
 
@@ -69,6 +71,7 @@ class ServiceController extends Controller
             'excerpt'=>$request->excerpt,
             'image'=>$request->image,
         ]);
+        $this->getUpdateSuccessMessage('Service');
         return redirect('service');
     }
 
@@ -78,6 +81,7 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         Service::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('Service');
         return redirect('service');
     }
 }

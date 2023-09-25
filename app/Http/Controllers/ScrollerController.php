@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Scroller;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
-
 class ScrollerController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -33,6 +34,7 @@ class ScrollerController extends Controller
             'title'=>$request->title,
             'url'=>$request->url,
         ]);
+        $this->getUpdateSuccessMessage('Scroller');
         return redirect('scroller');
     }
 
@@ -63,6 +65,7 @@ class ScrollerController extends Controller
             'title'=>$request->title,
             'url'=>$request->url,
         ]);
+        $this->getUpdateSuccessMessage('Scroller');
         return redirect('scroller');    }
 
     /**
@@ -71,6 +74,7 @@ class ScrollerController extends Controller
     public function destroy($id)
     {
         Scroller::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('Scroller');
         return redirect('scroller');
     }
 }

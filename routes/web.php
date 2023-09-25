@@ -68,7 +68,7 @@ Route::get('/mediaManager', function (){
 });
 Route::get('/mediaManager/image', [GalleryController::class,'allUploadedImages']);
 Route::post('/mediaManager/uploadmedia', [GalleryController::class,'mediaImageUpload']);
-Route::post('/mediaManager/destroyImage', [GalleryController::class,'destroyImage']);
+Route::get('/mediaManager/destroyImage/{imageDeletion}', [GalleryController::class,'destroyImage']);
 
 Route::get('image',[ImageController::class,'index']);
 Route::post('/image/save',[ImageController::class,'store']);

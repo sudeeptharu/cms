@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use App\Models\Image;
+use App\Traits\SuccessMessage;
+use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
 class GalleryController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -145,8 +147,13 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         //
-    }public function destroyImage(Gallery $gallery)
+    }public function destroyImage($image)
     {
-
+        if(Storage::exists("public/images/".$image)){
+            Storage::delete("public/images/".$image);
+        }else{
+                    return response("image not found");
+        }
+        return redirect('mediaManager');
     }
 }

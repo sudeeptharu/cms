@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\WebSetting;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
-
 class WebSettingController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -35,6 +36,7 @@ class WebSettingController extends Controller
             'image'=>$request->image,
             'align'=>$request->align
         ]);
+        $this->getDestroySuccessMEssage('web setting');
         return redirect('webSetting');
     }
 
@@ -66,6 +68,7 @@ class WebSettingController extends Controller
             'image'=>$request->image,
             'align'=>$request->align
         ]);
+        $this->getUpdateSuccessMessage('web setting');
         return redirect('webSetting');
     }
 
@@ -75,6 +78,7 @@ class WebSettingController extends Controller
     public function destroy( $id)
     {
         WebSetting::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('web setting');
         return redirect('webSetting');
     }
 }

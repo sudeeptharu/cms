@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
-
 class MenuController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -37,6 +38,7 @@ class MenuController extends Controller
             'parent_id '=>$request->parent_id ,
             'order'=>$request->order
         ]);
+        $this->getSuccessMessage('Menu');
         return redirect('menu');
     }
 
@@ -70,6 +72,7 @@ class MenuController extends Controller
             'parent_id '=>$request->parent_id ,
             'order'=>$request->order
         ]);
+        $this->getUpdateSuccessMessage('Menu');
         return redirect('menu');
     }
 
@@ -79,6 +82,7 @@ class MenuController extends Controller
     public function destroy($id)
     {
         Menu::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('Menu');
         return redirect('slider');
     }
 }

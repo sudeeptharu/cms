@@ -61,8 +61,8 @@
     </div>
     <script>
         var bsurl = '{{Storage::url('images')}}';
-        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
+        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
         // var bsurl='images';
         console.log(bsurl)
         var fm_dropzone_main = null;
@@ -147,6 +147,7 @@
                 for (var index = 0; index < 16; index++) {
                     var element = files[index];
                     var li = formatFile(element,"");
+                    console.log(li);
                     $("ul.files_container").append(li);
                 }
                 for(var index = 16; index < files.length; index++)
@@ -180,7 +181,7 @@
                 });
             });
             // return '<li><a class="fm_file_sel" data-toggle="tooltip" data-placement="top" title="'+upload.name+'"\>'+image+'</a></li>';
-            return '<li ><a class="fm_file_sel" style="position: relative;"  data-toggle="tooltip" data-placement="top"  upload=\''+JSON.stringify(upload)+'\'>'
+            return '<li ><a href="/mediaManager/destroyImage/'+upload+'" class="fm_file_sel" style="position: relative;"  data-toggle="tooltip" data-placement="top"  upload=\''+JSON.stringify(upload)+'\'>'
                 +image+'<span class="badge badge-pill badge-danger badge-up" style="top: 0px !important;right: 0px !important; position: absolute; cursor: pointer;">x</span></a></li>';
         }
 
