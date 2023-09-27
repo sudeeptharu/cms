@@ -48,7 +48,7 @@
 
                                 <div class="form-group">
                                     <label for="quote">Quote</label>
-                                    <textarea name="quote" id="quote"class="form-control editor" >
+                                    <textarea name="quote" id="quote"class="form-control editor " >
                                         {{ $post->quote }}
 
                                     </textarea>
@@ -89,7 +89,7 @@
                                            data-bs-dismiss="modal"
                                            class="btn set"
                                            type="button">Click here to select Image</a>
-                                        <a href="#" class="btn text-red reset hidden" type="button">Reset Image</a>
+                                        <a href="#" class="btn text-red reset hidden d-none"  type="button">Reset Image</a>
                                         <div id="cont-img"><img id="image_preview"  @if(!empty($post)) src="{{$post->image}}" width="200"  @else src="" style="display:none;" width="200" @endif  /></div>
 
                                     </div>
@@ -102,97 +102,97 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
-{{--<div class="modal-dialog modal-dialog modal-lg">--}}
-{{--    <div class="modal-content">--}}
-{{--        <div class="modal-header">--}}
-{{--            <h4 class="modal-title" > {{$task == 'save' ? 'Add Post' : 'Edit Post'}} </h4>--}}
-{{--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                <span aria-hidden="true">&times;</span>--}}
-{{--            </button>--}}
-{{--        </div>--}}
-
-{{--        <form class="form-horizontal" action="{{url( $task == 'save' ? '/post/save' : '/post/update')}}" method="post">--}}
-{{--            <div class="modal-body">--}}
-
-{{--                @csrf--}}
-{{--                {{$task == 'save' ? '' : method_field('put')}}--}}
-{{--                <input type="hidden" name="id" id="id">--}}
-{{--                <div class="container">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-6">--}}
-{{--                            <div class="form-group row">--}}
-{{--                                <label for="title">Title</label>--}}
-{{--                                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title" autocomplete="off">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-6">--}}
-{{--                            <div class="form-group row">--}}
-{{--                                <label for="subtitle">Sub Title</label>--}}
-{{--                                <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter title" autocomplete="off">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-
-{{--                <div class="col-12">--}}
-{{--                    <div class="form-group row">--}}
-{{--                        <label for="description">Description</label><br>--}}
-{{--                        <textarea name="description" id="description"class="form-control editor" >--}}
-
-{{--                        </textarea>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-12">--}}
-{{--                    <div class="form-group row">--}}
-{{--                        <label for="quote">Quote</label>--}}
-{{--                        <textarea name="quote" id="quote"class="form-control editor" >--}}
-
-{{--                        </textarea>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-12">--}}
-{{--                    <div class="form-group row">--}}
-{{--                        <label for="excerpt">Excerpt</label>--}}
-{{--                        <textarea name="excerpt" id="excerpt"class="form-control editor" >--}}
-
-{{--                        </textarea>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-12">--}}
-{{--                    <div class="form-group row">--}}
-{{--                        <div class="card-body">--}}
-{{--                            <input id="image" name="image" type="hidden" >--}}
-{{--                            <a href="#"--}}
-{{--                               data-toggle="modal"--}}
-{{--                               data-target="#modal-default-upload-image"--}}
-{{--                               data-bs-dismiss="modal"--}}
-{{--                               class="btn set"--}}
-{{--                               type="button">Click here to select Image</a>--}}
-{{--                            <a href="#" class="btn text-red reset hidden" type="button">Reset Image</a>--}}
-{{--                            <div id="cont-img"><img id="image_preview"  src="" width="200"  /></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-12">--}}
-{{--                    <div class="form-group row">--}}
-{{--                        <p ><b>Draft:</b>--}}
-{{--                            <input type="checkbox" name="draft" id="draft"  value="1">--}}
-{{--                        </p>--}}
-
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="modal-footer">--}}
-{{--                <button type="submit" class="btn btn-primary">{{$task == 'save' ? 'Save' : 'Save changes'}}</button>--}}
-{{--                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>--}}
-{{--            </div>--}}
-
-{{--        </form>--}}
-
-{{--    </div>--}}
-{{--    <!-- /.modal-content -->--}}
-{{--</div>--}}
+<!--<div class="modal-dialog modal-dialog modal-lg">--}}-->
+<!--{{--    <div class="modal-content">--}}-->
+<!--{{--        <div class="modal-header">--}}-->
+<!--{{--            <h4 class="modal-title" > {{$task == 'save' ? 'Add Post' : 'Edit Post'}} </h4>--}}-->
+<!--{{--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}-->
+<!--{{--                <span aria-hidden="true">&times;</span>--}}-->
+<!--{{--            </button>--}}-->
+<!--{{--        </div>--}}-->
+<!---->
+<!--{{--        <form class="form-horizontal" action="{{url( $task == 'save' ? '/post/save' : '/post/update')}}" method="post">--}}-->
+<!--{{--            <div class="modal-body">--}}-->
+<!---->
+<!--{{--                @csrf--}}-->
+<!--{{--                {{$task == 'save' ? '' : method_field('put')}}--}}-->
+<!--{{--                <input type="hidden" name="id" id="id">--}}-->
+<!--{{--                <div class="container">--}}-->
+<!--{{--                    <div class="row">--}}-->
+<!--{{--                        <div class="col-6">--}}-->
+<!--{{--                            <div class="form-group row">--}}-->
+<!--{{--                                <label for="title">Title</label>--}}-->
+<!--{{--                                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title" autocomplete="off">--}}-->
+<!--{{--                            </div>--}}-->
+<!--{{--                        </div>--}}-->
+<!--{{--                        <div class="col-6">--}}-->
+<!--{{--                            <div class="form-group row">--}}-->
+<!--{{--                                <label for="subtitle">Sub Title</label>--}}-->
+<!--{{--                                <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Enter title" autocomplete="off">--}}-->
+<!--{{--                            </div>--}}-->
+<!--{{--                        </div>--}}-->
+<!--{{--                    </div>--}}-->
+<!--{{--                </div>--}}-->
+<!---->
+<!---->
+<!--{{--                <div class="col-12">--}}-->
+<!--{{--                    <div class="form-group row">--}}-->
+<!--{{--                        <label for="description">Description</label><br>--}}-->
+<!--{{--                        <textarea name="description" id="description"class="form-control editor" >--}}-->
+<!---->
+<!--{{--                        </textarea>--}}-->
+<!--{{--                    </div>--}}-->
+<!--{{--                </div>--}}-->
+<!--{{--                <div class="col-12">--}}-->
+<!--{{--                    <div class="form-group row">--}}-->
+<!--{{--                        <label for="quote">Quote</label>--}}-->
+<!--{{--                        <textarea name="quote" id="quote"class="form-control editor" >--}}-->
+<!---->
+<!--{{--                        </textarea>--}}-->
+<!--{{--                    </div>--}}-->
+<!--{{--                </div>--}}-->
+<!--{{--                <div class="col-12">--}}-->
+<!--{{--                    <div class="form-group row">--}}-->
+<!--{{--                        <label for="excerpt">Excerpt</label>--}}-->
+<!--{{--                        <textarea name="excerpt" id="excerpt"class="form-control editor" >--}}-->
+<!---->
+<!--{{--                        </textarea>--}}-->
+<!--{{--                    </div>--}}-->
+<!--{{--                </div>--}}-->
+<!--{{--                <div class="col-12">--}}-->
+<!--{{--                    <div class="form-group row">--}}-->
+<!--{{--                        <div class="card-body">--}}-->
+<!--{{--                            <input id="image" name="image" type="hidden" >--}}-->
+<!--{{--                            <a href="#"--}}-->
+<!--{{--                               data-toggle="modal"--}}-->
+<!--{{--                               data-target="#modal-default-upload-image"--}}-->
+<!--{{--                               data-bs-dismiss="modal"--}}-->
+<!--{{--                               class="btn set"--}}-->
+<!--{{--                               type="button">Click here to select Image</a>--}}-->
+<!--{{--                            <a href="#" class="btn text-red reset hidden" type="button">Reset Image</a>--}}-->
+<!--{{--                            <div id="cont-img"><img id="image_preview"  src="" width="200"  /></div>--}}-->
+<!--{{--                        </div>--}}-->
+<!--{{--                    </div>--}}-->
+<!--{{--                </div>--}}-->
+<!--{{--                <div class="col-12">--}}-->
+<!--{{--                    <div class="form-group row">--}}-->
+<!--{{--                        <p ><b>Draft:</b>--}}-->
+<!--{{--                            <input type="checkbox" name="draft" id="draft"  value="1">--}}-->
+<!--{{--                        </p>--}}-->
+<!---->
+<!--{{--                    </div>--}}-->
+<!--{{--                </div>--}}-->
+<!--{{--            </div>--}}-->
+<!--{{--            <div class="modal-footer">--}}-->
+<!--{{--                <button type="submit" class="btn btn-primary">{{$task == 'save' ? 'Save' : 'Save changes'}}</button>--}}-->
+<!--{{--                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>--}}-->
+<!--{{--            </div>--}}-->
+<!---->
+<!--{{--        </form>--}}-->
+<!---->
+<!--{{--    </div>--}}-->
+<!--{{--    <!-- /.modal-content -->--}}-->
+<!--{{--</div>-->
 <div class="modal fade" id="modal-default-upload-image">
     @include('dashboard.pages.modals.add_media')
 </div>

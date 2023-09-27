@@ -6,11 +6,11 @@
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 col-12 text-center text-md-left">
                         <h1 class="m-0">Post</h1>
                     </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                    <div class="col-sm-6 col-12">
+                        <ol class="breadcrumb justify-content-center float-sm-right">
                             <li class="breadcrumb-item"><a href="{{url('/dashboard')}}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a href="#">Post</a></li>
                         </ol>
@@ -21,14 +21,14 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 text-center text-md-left"">
                         <div class="card">
                             <div class="card-header">
                                 <a type="button" class="btn btn-primary" href="post/add">
                                     Add Post
                                 </a>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body tbfixed">
                                 <table id="example2" class="table table-bordered table-striped">
                                     <thead>
                                     <tr class="table-info text-center">
@@ -41,7 +41,7 @@
                                     <tbody>
 
                                     @foreach($posts as $post)
-                                        <tr class="text-center">
+                                        <tr class="text-center overflow-auto-sm">
                                             <td>{{$post->title}}</td>
                                             <td>{{$post->excerpt}}</td>
                                             <td>{{$post->image}}</td>
@@ -65,12 +65,14 @@
                                             </td>
                                         </tr>
                                     @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+                <div class="col-12 d-flex justify-content-center paging">
+                    {{ $posts->onEachSide(0)->links() }}
+                </div>
                 </div>
             </div><!-- /.container-fluid -->
         </section>

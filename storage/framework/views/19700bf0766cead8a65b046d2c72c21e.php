@@ -68,6 +68,8 @@
                                     </tbody>
 
                                 </table>
+                                <?php echo e($sliders->onEachSide(0)->links()); ?>
+
 
                             </div>
                         </div>

@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\WebSetting;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
-
 class WebSettingController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $web_settings=WebSetting::paginate(10);
-        return view('dashboard.pages.web_settings',compact('web_settings',));
+        $webSettings=WebSetting::paginate(10);
+        return view('dashboard.pages.web_settings',compact('webSettings',));
     }
 
     /**
@@ -35,7 +36,8 @@ class WebSettingController extends Controller
             'image'=>$request->image,
             'align'=>$request->align
         ]);
-        return redirect('websetting');
+        $this->getDestroySuccessMEssage('web setting');
+        return redirect('webSetting');
     }
 
     /**
@@ -66,7 +68,8 @@ class WebSettingController extends Controller
             'image'=>$request->image,
             'align'=>$request->align
         ]);
-        return redirect('websetting');
+        $this->getUpdateSuccessMessage('web setting');
+        return redirect('webSetting');
     }
 
     /**
@@ -75,6 +78,7 @@ class WebSettingController extends Controller
     public function destroy( $id)
     {
         WebSetting::where(['id'=>$id])->delete();
-        return redirect('slider');
+        $this->getDestroySuccessMEssage('web setting');
+        return redirect('webSetting');
     }
 }

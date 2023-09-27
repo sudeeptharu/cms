@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use App\Models\Image;
+use App\Traits\SuccessMessage;
+use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-
 class GalleryController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $galleries=Gallery::paginate(10);
+        $galleries=Gallery::paginate(6);
         return view('dashboard.pages.galleries',compact('galleries',));
     }
 
@@ -26,7 +29,7 @@ class GalleryController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             //$folder = public_path('images/gallery/'.$request->gallery_id);
-            $folder =  storage_path('/app/public/gallery');
+            $folder =  storage_path('/app/public/images');
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
             $slider_image_success = $file->move($folder, $filename);
 
@@ -35,7 +38,7 @@ class GalleryController extends Controller
                 // Get public preferences
                 $slider_image = new Image();
                 //$slider_image->image ='/images/gallery/'.$request->gallery_id."/". $filename;
-                $slider_image->image =Storage::url("gallery/$filename");
+                $slider_image->image =Storage::url("images/$filename");
                 $slider_image->gallery_id = $request->gallery_id;
 
                 $slider_image->save();
@@ -58,8 +61,11 @@ class GalleryController extends Controller
         return response()->json(['uploads' => $gallery_images]);
     }
     public function allUploadedImages(){
-        $imagePath = 'public/gallery'; // Change this to the appropriate path where your images are stored in the public storage directory.
-        $files = Storage::files($imagePath);
+        $imagePath = 'public/images'; // Change this to the appropriate path where your images are stored in the public storage directory.
+        $files = collect(File::files(storage_path('app/public/images')))->sortByDesc(function ($file) {
+            return $file->getCTime();
+        });
+//        $files = Storage::files($imagePath);
 
         $images = [];
         foreach ($files as $file) {
@@ -115,7 +121,7 @@ class GalleryController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             //$folder = public_path('images/gallery/'.$request->gallery_id);
-            $folder =  storage_path('/app/public/gallery');
+            $folder =  storage_path('/app/public/images');
             $filename = uniqid() . '.' . $file->getClientOriginalExtension();
             $slider_image_success = $file->move($folder, $filename);
             if ($slider_image_success) {
@@ -145,5 +151,13 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         //
+    }public function destroyImage($image)
+    {
+        if(Storage::exists("public/images/".$image)){
+            Storage::delete("public/images/".$image);
+        }else{
+                    return response("image not found");
+        }
+        return redirect('mediaManager');
     }
 }

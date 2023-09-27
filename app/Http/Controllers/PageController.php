@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
-
 class PageController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -59,6 +60,7 @@ class PageController extends Controller
 //            'image'=>$request->image,
 //            'slug'=>$request->slug
 //        ]);
+        $this->getSuccessMessage('Page');
         return redirect('page');
     }
 
@@ -94,6 +96,7 @@ class PageController extends Controller
             'image'=>$request->image,
             'slug'=>$request->slug
         ]);
+        $this->getUpdateSuccessMessage('Page');
         return redirect('page');
     }
 
@@ -103,6 +106,7 @@ class PageController extends Controller
     public function destroy($id)
     {
         Page::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('Page');
         return redirect('page');
     }
 }

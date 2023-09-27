@@ -60,7 +60,7 @@
                 </li >
 
                 </li ><li class="nav-item">
-                    <a href="{{url('websetting')}}"  class="nav-link">
+                    <a href="{{url('webSetting')}}"  class="nav-link">
                         <i class="fas fa-sign-out-alt nav-icon"></i> <p>Web Setting</p>
                     </a>
                 </li >

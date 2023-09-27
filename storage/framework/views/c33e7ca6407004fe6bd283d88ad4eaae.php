@@ -68,6 +68,8 @@
                                     </tbody>
 
                                 </table>
+                                <?php echo e($services->onEachSide(0)->links()); ?>
+
 
                             </div>
                         </div>

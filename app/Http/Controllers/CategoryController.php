@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -32,6 +34,7 @@ class CategoryController extends Controller
         Category::insert([
             'title'=>$request->title,
         ]);
+        $this->getSuccessMessage('category');
         return redirect('category');
     }
 
@@ -61,6 +64,7 @@ class CategoryController extends Controller
             'title'=>$request->title,
 
         ]);
+        $this->getUpdateSuccessMessage('category');
         return redirect('category');
     }
 
@@ -70,6 +74,7 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         Category::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('category');
         return redirect('category');
     }
 }

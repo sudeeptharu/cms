@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Traits\SuccessMessage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    use SuccessMessage;
     /**
      * Display a listing of the resource.
      */
@@ -56,6 +58,7 @@ class PostController extends Controller
 //            'excerpt'=>$request->excerpt,
 //            'image'=>$request->image,
 //        ]);
+        $this->getUpdateSuccessMessage('Post');
         return redirect('post');
     }
     public function postAdd($id=null){
@@ -94,6 +97,7 @@ class PostController extends Controller
             'excerpt'=>$request->excerpt,
             'image'=>$request->image,
         ]);
+        $this->getUpdateSuccessMessage('Post');
         return redirect('post');
     }
 
@@ -103,6 +107,7 @@ class PostController extends Controller
     public function destroy($id)
     {
         Post::where(['id'=>$id])->delete();
+        $this->getDestroySuccessMEssage('Post');
         return redirect('post');
     }
 }
