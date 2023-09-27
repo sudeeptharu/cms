@@ -66,7 +66,7 @@
 <script src="{{url('backend/dist/js/shared.js')}}"></script>
 <script>
     $(function () {
-        tinymce.init({ selector:'.editor',theme: "modern",height: 300,width:800,
+        tinymce.init({ selector:'.editor',theme: "modern",
             plugins: [
                 "advlist autolink link image lists charmap print preview hr anchor pagebreak",
                 "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
@@ -83,7 +83,7 @@
             {{--external_plugins: { "filemanager" : "{{url('/filemanager/plugin.min.js')}}"},--}}
             autoresize_overflow_padding: 50,
             paste_data_images: true,
-            content_style: '.mce-content-body {padding: 5px !important}'
+            content_style: '.mce-content-body {padding: 5px !important; font-size: 12pt;} img { max-width:100%; height: auto;}'
         });
 
         $(".toggle-password").click(function() {

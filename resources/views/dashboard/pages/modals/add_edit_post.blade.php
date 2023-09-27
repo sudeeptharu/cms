@@ -48,7 +48,7 @@
 
                                 <div class="form-group">
                                     <label for="quote">Quote</label>
-                                    <textarea name="quote" id="quote"class="form-control editor" >
+                                    <textarea name="quote" id="quote"class="form-control editor " >
                                         {{ $post->quote }}
 
                                     </textarea>

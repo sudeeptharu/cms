@@ -406,3 +406,18 @@ html body .content .content-wrapper {
 
     margin-top: 0rem !important;}
 
+@media(max-width: 768px)
+{
+    table thead{
+        color: red;
+    }
+    .card-body{
+        overflow: auto;
+        border: 1px solid #ccc;
+    }
+    .paging{
+        font-size: small;
+    }
+}
+
+

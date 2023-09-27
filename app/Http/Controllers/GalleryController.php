@@ -7,6 +7,7 @@ use App\Models\Image;
 use App\Traits\SuccessMessage;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 class GalleryController extends Controller
 {
@@ -61,7 +62,10 @@ class GalleryController extends Controller
     }
     public function allUploadedImages(){
         $imagePath = 'public/images'; // Change this to the appropriate path where your images are stored in the public storage directory.
-        $files = Storage::files($imagePath);
+        $files = collect(File::files(storage_path('app/public/images')))->sortByDesc(function ($file) {
+            return $file->getCTime();
+        });
+//        $files = Storage::files($imagePath);
 
         $images = [];
         foreach ($files as $file) {
