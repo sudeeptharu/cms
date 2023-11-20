@@ -11,4 +11,9 @@ class Gallery extends Model
     protected $fillable=[
         'is_published' => 0
     ];
+
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

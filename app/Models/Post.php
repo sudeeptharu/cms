@@ -11,4 +11,9 @@ class Post extends Model
     protected $fillable=[
         'title','subtitle','description','draft', 'quote','excerpt','image'
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class,);
+    }
 }

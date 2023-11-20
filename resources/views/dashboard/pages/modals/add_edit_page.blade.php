@@ -89,7 +89,7 @@
                                             <h3 class="card-title">Featured Image</h3>
                                         </div>
                                         <div class="card-body">
-                                            <input id="image" name="image" type="hidden" >
+                                            <input id="image" name="image" type="text" >
                                             <a href="#"
                                                data-toggle="modal"
                                                data-target="#modal-default-upload-image"

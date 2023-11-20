@@ -68,7 +68,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
     <script src="{{url('tinymce/tinymce.min.js')}}"></script>
     <script src="{{url('tinymce/jquery.tinymce.min.js')}}"></script>
-    <script src="{{url('tinymce/plugins/code/plugin.min.js')}}"></script>
+    <script src="{{url('tinymce/plugins/code/plugin.min.js')}}"></script>dock
     <!--clockwork cdn-->
     <script src="https://cdn.jsdelivr.net/gh/underground-works/clockwork-browser@1/dist/toolbar.js"></script>
 </head>

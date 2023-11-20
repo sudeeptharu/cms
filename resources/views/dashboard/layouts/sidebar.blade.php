@@ -1,12 +1,12 @@
 {{--<!-- Main Sidebar Container -->--}}
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    {{--<!-- Brand Logo -->--}}
+    <!-- Brand Logo -->
     <a href="{{url('/dashboard/')}}" class="brand-link">
         <img src="{{ url('https://ui-avatars.com/api/?name='.config('app.name') . '&background=d6d8d9&color=343a40&length=4&size=256&font-size=0.33&bold=true')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Dashboard</span>
     </a>
 
-    {{--<!-- Sidebar -->--}}
+    <!-- Sidebar -->
     <div class="sidebar">
 
         <nav class="mt-2">
@@ -77,7 +77,7 @@
 
             </ul>
         </nav>
-        {{--<!-- /.sidebar-menu -->--}}
+        <!-- /.sidebar-menu -->
     </div>
-    {{--<!-- /.sidebar -->--}}
+    <!-- /.sidebar -->
 </aside>

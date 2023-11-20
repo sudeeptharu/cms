@@ -21,7 +21,9 @@
                 <div class="card-header">
                     <div class="row">
                             <div class="col-md-12">
-                                <button type="button" id="AddNewUploads" class="btn btn-success btn-sm pull-right">Add New</button>
+                                <button type="button"
+                                        id="AddNewUploads"
+                                        class="btn btn-success btn-sm pull-right">Add New</button>
                             </div>
                     </div>
                 </div>

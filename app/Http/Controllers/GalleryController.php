@@ -151,7 +151,8 @@ class GalleryController extends Controller
     public function destroy(Gallery $gallery)
     {
         //
-    }public function destroyImage($image)
+    }
+    public function destroyImage($image)
     {
         if(Storage::exists("public/images/".$image)){
             Storage::delete("public/images/".$image);
